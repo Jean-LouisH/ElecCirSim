@@ -121,10 +121,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ElecCirSim.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.hpp" />
+    <ClInclude Include="ElecCirSim.hpp" />
+    <ClInclude Include="Engine.hpp" />
+    <ClInclude Include="Input.hpp" />
+    <ClInclude Include="Output.hpp" />
+    <ClInclude Include="SDLRenderable.hpp" />
     <ClInclude Include="Timer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

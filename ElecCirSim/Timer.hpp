@@ -1,10 +1,8 @@
 /**
 *                      This file is part of:
-*                          Isle Fight
+*                          ElecCirSim
 *
-* ElecCirSim
-*
-* Defines time data.
+* Timer
 *
 * Copyright (c) 2018 Jean-Louis Haywood. All rights reserved.
 */
