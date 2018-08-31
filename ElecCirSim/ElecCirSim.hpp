@@ -14,5 +14,7 @@ namespace ElecCirSim
 {
 	void initialize(Engine* engine);
 	void loop(Engine* engine);
+	void input(Engine* engine);
+	void output(Engine* engine);
 	void shutdown(Engine* engine);
 }
