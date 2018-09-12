@@ -3,12 +3,12 @@
 #include <SDL_image.h>
 
 
-void ElecCirSim::initialize(Engine* engine)
+void ElecCirSim::initialize(Core* core)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING))
 		SDL_Log("SDL could not initialize because: %s", SDL_GetError());
 
-	engine->window = SDL_CreateWindow(
+	core->window = SDL_CreateWindow(
 		"ElecCirSim",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
@@ -16,43 +16,43 @@ void ElecCirSim::initialize(Engine* engine)
 		640,
 		SDL_WINDOW_RESIZABLE | SDL_WINDOW_MAXIMIZED);
 
-	if (engine->window == NULL)
+	if (core->window == NULL)
 		SDL_Log(
 			"SDL could not create the window because: %s",
 			SDL_GetError());
 
 	SDL_Surface* logo = IMG_Load("");
-	SDL_SetWindowIcon(engine->window, logo);
+	SDL_SetWindowIcon(core->window, logo);
 	SDL_FreeSurface(logo);
 
-	engine->SDLRenderer = SDL_CreateRenderer(
-		engine->window,
+	core->SDLRenderer = SDL_CreateRenderer(
+		core->window,
 		-1,
 		SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 }
 
-void ElecCirSim::loop(Engine* engine)
+void ElecCirSim::loop(Core* core)
 {
 	do
 	{
-		engine->timer.cycleStart = SDL_GetTicks();
+		core->timer.cycleStart = SDL_GetTicks();
 
-		ElecCirSim::input(engine);
-		ElecCirSim::output(engine);
+		ElecCirSim::input(core);
+		ElecCirSim::output(core);
 
-		engine->timer.cycleEnd = SDL_GetTicks();
-		engine->timer.cycleDelta = engine->timer.cycleEnd - engine->timer.cycleStart;
-		engine->timer.frameDelay = FRAME_TIME_MS - engine->timer.cycleDelta;
-		if (engine->timer.frameDelay > 0)
-			SDL_Delay(engine->timer.frameDelay);
-		engine->timer.frame = SDL_GetTicks() - engine->timer.cycleStart;
-	} while (engine->state != engineStates::SHUTDOWN);
+		core->timer.cycleEnd = SDL_GetTicks();
+		core->timer.cycleDelta = core->timer.cycleEnd - core->timer.cycleStart;
+		core->timer.frameDelay = FRAME_TIME_MS - core->timer.cycleDelta;
+		if (core->timer.frameDelay > 0)
+			SDL_Delay(core->timer.frameDelay);
+		core->timer.frame = SDL_GetTicks() - core->timer.cycleStart;
+	} while (core->state != coreStates::SHUTDOWN);
 }
 
-void ElecCirSim::input(Engine* engine)
+void ElecCirSim::input(Core* core)
 {
 	SDL_Event SDLEvents;
-	MouseState* mouse = &engine->input.mouse;
+	MouseState* mouse = &core->input.mouse;
 
 	while (SDL_PollEvent(&SDLEvents))
 	{
@@ -60,7 +60,7 @@ void ElecCirSim::input(Engine* engine)
 		{
 			/*Close window button*/
 		case SDL_QUIT:
-			engine->state = engineStates::SHUTDOWN;
+			core->state = coreStates::SHUTDOWN;
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
@@ -105,16 +105,16 @@ void ElecCirSim::input(Engine* engine)
 	}
 }
 
-void ElecCirSim::output(Engine* engine)
+void ElecCirSim::output(Core* core)
 {
-	SDL_SetRenderDrawColor(engine->SDLRenderer, 0, 0, 0, 255);
-	SDL_RenderClear(engine->SDLRenderer);
+	SDL_SetRenderDrawColor(core->SDLRenderer, 0, 0, 0, 255);
+	SDL_RenderClear(core->SDLRenderer);
 
-	SDL_RenderPresent(engine->SDLRenderer);
+	SDL_RenderPresent(core->SDLRenderer);
 }
 
-void ElecCirSim::shutdown(Engine* engine)
+void ElecCirSim::shutdown(Core* core)
 {
-	SDL_DestroyWindow(engine->window);
+	SDL_DestroyWindow(core->window);
 	SDL_Quit();
 }

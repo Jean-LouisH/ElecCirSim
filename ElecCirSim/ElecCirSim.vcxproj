@@ -127,7 +127,7 @@
   <ItemGroup>
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="ElecCirSim.hpp" />
-    <ClInclude Include="Engine.hpp" />
+    <ClInclude Include="Core.hpp" />
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="Output.hpp" />
     <ClInclude Include="SDLRenderable.hpp" />

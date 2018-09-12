@@ -1,20 +1,20 @@
 #include <SDL.h>
 
 #include "ElecCirSim.hpp"
-#include "Engine.hpp"
+#include "Core.hpp"
 
 #include "Constants.hpp"
 #include "Timer.hpp"
 
 int main(int argc, char* argv[])
 {
-	ElecCirSim::Engine* engine = new ElecCirSim::Engine();
+	ElecCirSim::Core* core = new ElecCirSim::Core();
 
-	ElecCirSim::initialize(engine);
-	ElecCirSim::loop(engine);
-	ElecCirSim::shutdown(engine);
+	ElecCirSim::initialize(core);
+	ElecCirSim::loop(core);
+	ElecCirSim::shutdown(core);
 
-	delete engine;
+	delete core;
 
 	return 0;
 }

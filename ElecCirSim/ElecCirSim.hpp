@@ -8,13 +8,13 @@
 
 #pragma once
 
-#include "Engine.hpp"
+#include "Core.hpp"
 
 namespace ElecCirSim
 {
-	void initialize(Engine* engine);
-	void loop(Engine* engine);
-	void input(Engine* engine);
-	void output(Engine* engine);
-	void shutdown(Engine* engine);
+	void initialize(Core* core);
+	void loop(Core* core);
+	void input(Core* core);
+	void output(Core* core);
+	void shutdown(Core* core);
 }

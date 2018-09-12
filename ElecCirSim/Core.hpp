@@ -2,7 +2,7 @@
 *                      This file is part of:
 *                          ElecCirSim
 *
-* Engine
+* Core
 *
 *
 * Copyright (c) 2017-2018 Jean-Louis Haywood. All rights reserved.
@@ -18,13 +18,13 @@
 
 namespace ElecCirSim
 {
-	enum engineStates
+	enum coreStates
 	{
 		RUNNING_SIMULATION,
 		SHUTDOWN,
 	};
 
-	typedef struct Engine
+	typedef struct Core
 	{
 		SDL_Window* window;
 		SDL_Renderer* SDLRenderer;
@@ -33,10 +33,10 @@ namespace ElecCirSim
 		Input input;
 		Output output;
 		uint8_t state;
-		Engine() :
+		Core() :
 			window(NULL),
 			SDLRenderer(NULL),
 			filepath(NULL),
 			state(RUNNING_SIMULATION) {}
-	}Engine;
+	}Core;
 }
