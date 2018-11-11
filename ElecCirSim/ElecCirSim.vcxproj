@@ -125,12 +125,14 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnalogueComponent.hpp" />
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="ElecCirSim.hpp" />
     <ClInclude Include="Core.hpp" />
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="Output.hpp" />
     <ClInclude Include="SDLRenderable.hpp" />
+    <ClInclude Include="Terminal.hpp" />
     <ClInclude Include="Timer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
