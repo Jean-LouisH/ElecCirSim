@@ -33,19 +33,20 @@ void ElecCirSim::initialize(Core* core)
 
 void ElecCirSim::loop(Core* core)
 {
+	Timer* timer = &core->timer;
 	do
 	{
-		core->timer.cycleStart = SDL_GetTicks();
+		timer->cycleStart = SDL_GetTicks();
 
 		ElecCirSim::input(core);
 		ElecCirSim::output(core);
 
-		core->timer.cycleEnd = SDL_GetTicks();
-		core->timer.cycleDelta = core->timer.cycleEnd - core->timer.cycleStart;
-		core->timer.frameDelay = FRAME_TIME_MS - core->timer.cycleDelta;
-		if (core->timer.frameDelay > 0)
-			SDL_Delay(core->timer.frameDelay);
-		core->timer.frame = SDL_GetTicks() - core->timer.cycleStart;
+		timer->cycleEnd = SDL_GetTicks();
+		timer->cycleDelta = timer->cycleEnd - timer->cycleStart;
+		timer->frameDelay = FRAME_TIME_MS - timer->cycleDelta;
+		if (timer->frameDelay > 0)
+			SDL_Delay(timer->frameDelay);
+		timer->frame = SDL_GetTicks() - timer->cycleStart;
 	} while (core->state != coreStates::SHUTDOWN);
 }
 
