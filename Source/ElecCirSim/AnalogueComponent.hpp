@@ -15,28 +15,34 @@
 #include <stdint.h>
 
 #include "Terminal.hpp"
+#include "SDLRenderable.hpp"
 
-enum ComponentTypes
+namespace ElecCirSim
 {
-	RESISTOR,
-	CAPACITOR,
-	INDUCTOR,
-	NPN_TRANSISTOR,
-	PNP_TRANSISTOR,
-	N_MOSFET,
-	P_MOSFET,
-};
+	enum ComponentTypes
+	{
+		RESISTOR,
+		CAPACITOR,
+		INDUCTOR,
+		NPN_TRANSISTOR,
+		PNP_TRANSISTOR,
+		N_MOSFET,
+		P_MOSFET,
+	};
 
-typedef struct
-{
-	double resistance;
-	double capacitance;
-	double inductance;
-}ElectricalElements;
+	typedef struct
+	{
+		double resistance;
+		double capacitance;
+		double inductance;
+	}ElectricalElements;
 
-typedef struct
-{
-	std::vector<Terminal> terminals;
-	uint8_t type;
-	ElectricalElements elements;
-}Component;
+	typedef struct
+	{
+		std::vector<Terminal> terminals;
+		SDLRenderable sprite;
+		uint8_t type;
+		ElectricalElements elements;
+	}Component;
+}
+

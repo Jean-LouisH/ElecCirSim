@@ -11,24 +11,28 @@
 
 #include <stdint.h>
 
-enum TerminalTypes
+namespace ElecCirSim
 {
-	POSITIVE,
-	NEGATIVE,
-	COLLECTOR,
-	BASE,
-	EMITTER,
-	GATE,
-	BODY,
-	SOURCE,
-	DRAIN,
-};
+	enum TerminalTypes
+	{
+		POSITIVE,
+		NEGATIVE,
+		COLLECTOR,
+		BASE,
+		EMITTER,
+		GATE,
+		BODY,
+		SOURCE,
+		DRAIN,
+	};
 
-typedef struct
-{
-	int xPosition;
-	int yPosition;
-	double voltage;
-	double current;
-	uint8_t type;
-}Terminal;
+	typedef struct
+	{
+		int xPosition;
+		int yPosition;
+		double voltage;
+		double current;
+		uint8_t type;
+	}Terminal;
+}
+
