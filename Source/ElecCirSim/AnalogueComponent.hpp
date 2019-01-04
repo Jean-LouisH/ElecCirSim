@@ -6,7 +6,7 @@
 *
 * Defines the general structure of analogue electronic components to be listed in the simulation.
 *
-* Copyright (c) 2018 Jean-Louis Haywood. All rights reserved.
+* Copyright (c) 2018-2019 Jean-Louis Haywood. All rights reserved.
 */
 
 #pragma once
