@@ -44,10 +44,19 @@
     <ClInclude Include="Core.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AnalogueComponent.hpp">
+    <ClInclude Include="Terminal.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Terminal.hpp">
+    <ClInclude Include="Component.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Aliases.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentTerminalRegistry.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

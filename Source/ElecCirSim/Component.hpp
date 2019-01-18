@@ -2,9 +2,9 @@
 *                      This file is part of:
 *                          ElecCirSim
 *
-* Analogue Component
+* Component
 *
-* Defines the general structure of analogue electronic components to be listed in the simulation.
+* Defines the general structure of all electronic components to be listed in the simulation.
 *
 * Copyright (c) 2018-2019 Jean-Louis Haywood. All rights reserved.
 */
@@ -21,13 +21,23 @@ namespace ElecCirSim
 {
 	enum ComponentTypes
 	{
+		DC_VOLTAGE_SOURCE,
+		AC_VOLTAGE_SOURCE,
+
 		RESISTOR,
 		CAPACITOR,
 		INDUCTOR,
+
 		NPN_TRANSISTOR,
 		PNP_TRANSISTOR,
 		N_MOSFET,
 		P_MOSFET,
+
+		NOT_GATE,
+		AND_GATE,
+		OR_GATE,
+		NAND_GATE,
+		NOR_GATE,
 	};
 
 	typedef struct

@@ -125,7 +125,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnalogueComponent.hpp" />
+    <ClInclude Include="Aliases.hpp" />
+    <ClInclude Include="Component.hpp" />
+    <ClInclude Include="ComponentTerminalRegistry.hpp" />
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="ElecCirSim.hpp" />
     <ClInclude Include="Core.hpp" />
@@ -134,6 +136,7 @@
     <ClInclude Include="SDLRenderable.hpp" />
     <ClInclude Include="Terminal.hpp" />
     <ClInclude Include="Timer.hpp" />
+    <ClInclude Include="Vector2.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
