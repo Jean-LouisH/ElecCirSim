@@ -10,6 +10,7 @@
 #pragma once
 
 #include <stdint.h>
+#include "Vector2.hpp"
 
 namespace ElecCirSim
 {
@@ -28,8 +29,7 @@ namespace ElecCirSim
 
 	typedef struct
 	{
-		int xPosition;
-		int yPosition;
+		Vector2 position;
 		double voltage;
 		double current;
 		uint8_t type;
