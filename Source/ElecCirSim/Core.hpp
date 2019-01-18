@@ -27,6 +27,7 @@ namespace ElecCirSim
 	typedef struct Core
 	{
 		SDL_Window* window;
+		SDL_GLContext glContext;
 		SDL_Renderer* SDLRenderer;
 		char* filepath;
 		Timer timer;

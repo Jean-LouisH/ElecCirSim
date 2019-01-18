@@ -14,21 +14,27 @@ void ElecCirSim::initialize(Core* core)
 		SDL_WINDOWPOS_UNDEFINED,
 		800,
 		640,
-		SDL_WINDOW_RESIZABLE | SDL_WINDOW_MAXIMIZED);
+		SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_MAXIMIZED);
 
 	if (core->window == NULL)
+	{
 		SDL_Log(
 			"SDL could not create the window because: %s",
 			SDL_GetError());
+	}
+	else
+	{
+		SDL_Surface* logo = IMG_Load("");
+		SDL_SetWindowIcon(core->window, logo);
+		SDL_FreeSurface(logo);
 
-	SDL_Surface* logo = IMG_Load("");
-	SDL_SetWindowIcon(core->window, logo);
-	SDL_FreeSurface(logo);
+		core->glContext = SDL_GL_CreateContext(core->window);
 
-	core->SDLRenderer = SDL_CreateRenderer(
-		core->window,
-		-1,
-		SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+		core->SDLRenderer = SDL_CreateRenderer(
+			core->window,
+			-1,
+			SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	}
 }
 
 void ElecCirSim::loop(Core* core)
@@ -39,6 +45,7 @@ void ElecCirSim::loop(Core* core)
 		timer->cycleStart = SDL_GetTicks();
 
 		ElecCirSim::input(core);
+		ElecCirSim::compute(core);
 		ElecCirSim::output(core);
 
 		timer->cycleEnd = SDL_GetTicks();
@@ -106,6 +113,11 @@ void ElecCirSim::input(Core* core)
 	}
 }
 
+void ElecCirSim::compute(Core* core)
+{
+
+}
+
 void ElecCirSim::output(Core* core)
 {
 	SDL_SetRenderDrawColor(core->SDLRenderer, 0, 0, 0, 255);
@@ -116,6 +128,7 @@ void ElecCirSim::output(Core* core)
 
 void ElecCirSim::shutdown(Core* core)
 {
+	SDL_GL_DeleteContext(core->glContext);
 	SDL_DestroyWindow(core->window);
 	SDL_Quit();
 }

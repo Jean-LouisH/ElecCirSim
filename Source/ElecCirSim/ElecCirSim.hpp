@@ -15,6 +15,7 @@ namespace ElecCirSim
 	void initialize(Core* core);
 	void loop(Core* core);
 	void input(Core* core);
+	void compute(Core* core);
 	void output(Core* core);
 	void shutdown(Core* core);
 }
