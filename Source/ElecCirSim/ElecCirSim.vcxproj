@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aliases.hpp" />
+    <ClInclude Include="Application.hpp" />
     <ClInclude Include="Component.hpp" />
     <ClInclude Include="ComponentTerminalRegistry.hpp" />
     <ClInclude Include="Constants.hpp" />
