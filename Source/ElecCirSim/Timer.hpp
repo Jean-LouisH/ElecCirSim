@@ -13,14 +13,12 @@ namespace ElecCirSim
 {
 	typedef struct Timer
 	{
-		double simulation;
 		int cycleStart;
 		int cycleEnd;
 		int cycleDelta;
 		int frameDelay;
 		int frame;
 		Timer() :
-			simulation(0.0),
 			cycleStart(0),
 			cycleEnd(0),
 			cycleDelta(0),

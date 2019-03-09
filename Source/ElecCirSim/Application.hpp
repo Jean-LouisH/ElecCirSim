@@ -20,7 +20,9 @@ namespace ElecCirSim
 	{
 		std::vector<Component> components;
 		ComponentTerminalRegistry registry;
-		Application()
+		double simulation;
+		Application():
+			simulation(0.0)
 		{}
 	}Application;
 }
