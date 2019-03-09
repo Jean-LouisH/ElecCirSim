@@ -37,7 +37,7 @@ void ElecCirSim::initialize(Core* core)
 	}
 }
 
-void ElecCirSim::loop(Core* core)
+void ElecCirSim::loop(Core* core, Application* application)
 {
 	Timer* timer = &core->timer;
 	do
@@ -45,16 +45,21 @@ void ElecCirSim::loop(Core* core)
 		timer->cycleStart = SDL_GetTicks();
 
 		ElecCirSim::input(core);
-		ElecCirSim::compute(core);
+		ElecCirSim::compute(core, application);
 		ElecCirSim::output(core);
-
-		timer->cycleEnd = SDL_GetTicks();
-		timer->cycleDelta = timer->cycleEnd - timer->cycleStart;
-		timer->frameDelay = FRAME_TIME_MS - timer->cycleDelta;
-		if (timer->frameDelay > 0)
-			SDL_Delay(timer->frameDelay);
-		timer->frame = SDL_GetTicks() - timer->cycleStart;
+		ElecCirSim::sleep(core);
 	} while (core->state != coreStates::SHUTDOWN);
+}
+
+void ElecCirSim::sleep(Core* core)
+{
+	Timer* timer = &core->timer;
+	timer->cycleEnd = SDL_GetTicks();
+	timer->cycleDelta = timer->cycleEnd - timer->cycleStart;
+	timer->frameDelay = FRAME_TIME_MS - timer->cycleDelta;
+	if (timer->frameDelay > 0)
+		SDL_Delay(timer->frameDelay);
+	timer->frame = SDL_GetTicks() - timer->cycleStart;
 }
 
 void ElecCirSim::input(Core* core)
@@ -113,7 +118,7 @@ void ElecCirSim::input(Core* core)
 	}
 }
 
-void ElecCirSim::compute(Core* core)
+void ElecCirSim::compute(Core* core, Application* application)
 {
 
 }
@@ -126,7 +131,7 @@ void ElecCirSim::output(Core* core)
 	SDL_RenderPresent(core->SDLRenderer);
 }
 
-void ElecCirSim::shutdown(Core* core)
+void ElecCirSim::shutdown(Core* core, Application* application)
 {
 	SDL_GL_DeleteContext(core->glContext);
 	SDL_DestroyWindow(core->window);
