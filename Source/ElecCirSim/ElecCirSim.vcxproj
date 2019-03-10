@@ -135,6 +135,7 @@
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="Output.hpp" />
     <ClInclude Include="SDLRenderable.hpp" />
+    <ClInclude Include="SpriteCache.hpp" />
     <ClInclude Include="Terminal.hpp" />
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="Vector2.hpp" />
