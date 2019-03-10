@@ -11,8 +11,10 @@
 #pragma once
 
 #include <vector>
+#include <string>
 #include "Component.hpp"
 #include "ComponentTerminalRegistry.hpp"
+#include "SpriteCache.hpp"
 
 namespace ElecCirSim
 {
@@ -20,9 +22,12 @@ namespace ElecCirSim
 	{
 		std::vector<Component> components;
 		ComponentTerminalRegistry registry;
-		double simulation;
+		SpriteCache spriteCache;
+		double simulationTime_s;
+		double timeStep_us;
+		std::string simulationTitle;
 		Application():
-			simulation(0.0)
+			simulationTime_s(0.0)
 		{}
 	}Application;
 }
