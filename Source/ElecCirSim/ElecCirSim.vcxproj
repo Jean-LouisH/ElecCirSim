@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="ElecCirSim.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SpriteCache.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aliases.hpp" />

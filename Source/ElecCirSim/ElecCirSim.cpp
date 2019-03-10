@@ -24,6 +24,8 @@ void ElecCirSim::initialize(Core* core)
 	}
 	else
 	{
+		IMG_Init(IMG_INIT_PNG);
+
 		SDL_Surface* logo = IMG_Load("");
 		SDL_SetWindowIcon(core->window, logo);
 		SDL_FreeSurface(logo);
@@ -40,6 +42,9 @@ void ElecCirSim::initialize(Core* core)
 void ElecCirSim::loop(Core* core, Application* application)
 {
 	Timer* timer = &core->timer;
+
+	application->spriteCache.buildWithRenderer(core->SDLRenderer);
+
 	do
 	{
 		timer->cycleStart = SDL_GetTicks();
@@ -133,6 +138,8 @@ void ElecCirSim::output(Core* core)
 
 void ElecCirSim::shutdown(Core* core, Application* application)
 {
+	application->spriteCache.clear();
+	IMG_Quit();
 	SDL_GL_DeleteContext(core->glContext);
 	SDL_DestroyWindow(core->window);
 	SDL_Quit();

@@ -11,11 +11,13 @@
 #pragma once
 
 #include <SDL_render.h>
+#include <SDL_image.h>
 
 namespace ElecCirSim
 {
-	typedef struct SpriteCache
+	class SpriteCache
 	{
+	public:
 		SDL_Texture* dcVoltageSource;
 		SDL_Texture* acVoltageSource;
 		SDL_Texture* ground;
@@ -36,7 +38,7 @@ namespace ElecCirSim
 		SDL_Texture* nandGate;
 		SDL_Texture* norGate;
 
-		SpriteCache()
-		{}
-	}SpriteCache;
+		void buildWithRenderer(SDL_Renderer* renderer);
+		void clear();
+	};
 }
