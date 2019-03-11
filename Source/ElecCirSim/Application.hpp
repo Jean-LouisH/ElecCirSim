@@ -12,9 +12,10 @@
 
 #include <vector>
 #include <string>
+#include "Camera2D.hpp"
 #include "Component.hpp"
 #include "ComponentTerminalRegistry.hpp"
-#include "SpriteCache.hpp"
+#include "TextureCache.hpp"
 
 namespace ElecCirSim
 {
@@ -22,7 +23,8 @@ namespace ElecCirSim
 	{
 		std::vector<Component> components;
 		ComponentTerminalRegistry registry;
-		SpriteCache spriteCache;
+		TextureCache textureCache;
+		Camera2D camera;
 		double simulationTime_s;
 		double timeStep_us;
 		std::string simulationTitle;

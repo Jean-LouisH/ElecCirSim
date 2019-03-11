@@ -15,7 +15,7 @@
 #include <stdint.h>
 
 #include "Terminal.hpp"
-#include "SDLRenderable.hpp"
+#include "Sprite2D.hpp"
 
 namespace ElecCirSim
 {
@@ -58,7 +58,7 @@ namespace ElecCirSim
 	typedef struct
 	{
 		std::vector<Terminal> terminals;
-		SDLRenderable sprite;
+		Sprite2D sprite;
 		uint8_t type;
 		ElectricalElements elements;
 	}Component;

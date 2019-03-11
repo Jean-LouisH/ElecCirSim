@@ -1,7 +1,7 @@
 #include "ElecCirSim.hpp"
 #include "Constants.hpp"
 #include <SDL_image.h>
-
+#include "RenderingSDL.hpp"
 
 void ElecCirSim::initialize(Core* core)
 {
@@ -43,7 +43,7 @@ void ElecCirSim::loop(Core* core, Application* application)
 {
 	Timer* timer = &core->timer;
 
-	application->spriteCache.buildWithRenderer(core->SDLRenderer);
+	application->textureCache.buildWithRenderer(core->SDLRenderer);
 
 	do
 	{
@@ -125,20 +125,39 @@ void ElecCirSim::input(Core* core)
 
 void ElecCirSim::compute(Core* core, Application* application)
 {
-
+	Rendering2D::SDL::buildRenderablesFromComponents(
+		&core->output.SDLRenderables,
+		application->components,
+		application->camera,
+		core->window);
 }
 
 void ElecCirSim::output(Core* core)
 {
+	std::vector<SDLRenderable>* renderables = &core->output.SDLRenderables;
+
 	SDL_SetRenderDrawColor(core->SDLRenderer, 0, 0, 0, 255);
 	SDL_RenderClear(core->SDLRenderer);
+
+	for (int i = 0; i < renderables->size(); i++)
+	{
+		SDLRenderable renderable = renderables->at(i);
+		SDL_RenderCopyEx(
+			core->SDLRenderer,
+			renderable.texture,
+			&renderable.renderingRect,
+			&renderable.textureRect,
+			renderable.rotation,
+			NULL,
+			renderable.flip);
+	}
 
 	SDL_RenderPresent(core->SDLRenderer);
 }
 
 void ElecCirSim::shutdown(Core* core, Application* application)
 {
-	application->spriteCache.clear();
+	application->textureCache.clear();
 	IMG_Quit();
 	SDL_GL_DeleteContext(core->glContext);
 	SDL_DestroyWindow(core->window);

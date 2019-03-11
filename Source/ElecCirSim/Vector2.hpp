@@ -9,16 +9,13 @@
 
 #pragma once
 
-namespace ElecCirSim
+typedef struct Vector2
 {
-	typedef struct Vector2
-	{
-		int x;
-		int y;
+	int x;
+	int y;
 
-		Vector2() :
-		x(0),
-		y(0)
-		{}
-	}Vector2;
-}
+	Vector2() :
+	x(0),
+	y(0)
+	{}
+}Vector2;

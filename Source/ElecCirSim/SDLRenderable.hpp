@@ -11,14 +11,11 @@
 
 #include <SDL_render.h>
 
-namespace ElecCirSim
+typedef struct SDLRenderable
 {
-	typedef struct SDLRenderable
-	{
-		SDL_Texture* texture;
-		SDL_Rect textureRect;
-		SDL_Rect renderingRect;
-		double rotation;
-		SDL_RendererFlip flip;
-	}SDLRenderable;
-}
+	SDL_Texture* texture;
+	SDL_Rect textureRect;
+	SDL_Rect renderingRect;
+	double rotation;
+	SDL_RendererFlip flip;
+}SDLRenderable;
