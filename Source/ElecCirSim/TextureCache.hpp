@@ -2,7 +2,7 @@
 *                      This file is part of:
 *                          ElecCirSim
 *
-* Sprite Cache
+* Texture Cache
 *
 *
 * Copyright (c) 2017-2018 Jean-Louis Haywood. All rights reserved.
@@ -15,7 +15,7 @@
 
 namespace ElecCirSim
 {
-	class SpriteCache
+	class TextureCache
 	{
 	public:
 		SDL_Texture* dcVoltageSource;

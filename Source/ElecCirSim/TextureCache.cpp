@@ -1,6 +1,6 @@
-#include "SpriteCache.hpp"
+#include "TextureCache.hpp"
 
-void ElecCirSim::SpriteCache::buildWithRenderer(SDL_Renderer* renderer)
+void ElecCirSim::TextureCache::buildWithRenderer(SDL_Renderer* renderer)
 {
 	SDL_Surface* dcVoltageSourceSurface = IMG_Load("../../Data/Sprites/dc_voltage_source.png");
 	SDL_Surface* groundSurface = IMG_Load("../../Data/Sprites/ground.png");
@@ -21,7 +21,7 @@ void ElecCirSim::SpriteCache::buildWithRenderer(SDL_Renderer* renderer)
 	SDL_FreeSurface(inductorSurface);
 }
 
-void ElecCirSim::SpriteCache::clear()
+void ElecCirSim::TextureCache::clear()
 {
 	SDL_DestroyTexture(this->dcVoltageSource);
 	//SDL_DestroyTexture(this->acVoltageSource);
