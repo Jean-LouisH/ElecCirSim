@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -124,6 +124,7 @@
     <ClCompile Include="ElecCirSim.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RenderingSDL.cpp" />
+    <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="TextureCache.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="Rect.hpp" />
     <ClInclude Include="RenderingSDL.hpp" />
     <ClInclude Include="SDLRenderable.hpp" />
+    <ClInclude Include="Simulation.hpp" />
     <ClInclude Include="Sprite2D.hpp" />
     <ClInclude Include="TextureCache.hpp" />
     <ClInclude Include="Terminal.hpp" />

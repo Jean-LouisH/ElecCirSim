@@ -27,9 +27,12 @@ namespace ElecCirSim
 		Camera2D camera;
 		double simulationTime_s;
 		double timeStep_us;
+		bool wasCanvasUpdated;
 		std::string simulationTitle;
 		Application():
-			simulationTime_s(0.0)
+			simulationTime_s(0.0),
+			timeStep_us(10.0),
+			wasCanvasUpdated(false)
 		{}
 	}Application;
 }
