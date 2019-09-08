@@ -7,15 +7,11 @@
 * Copyright (c) 2018-2019 Jean-Louis Haywood. All rights reserved.
 */
 
+#include "../glm-0.9.9.3/glm/glm/glm.hpp"
+
 #pragma once
 
-typedef struct Vector2
+namespace ElecCirSim
 {
-	int x;
-	int y;
-
-	Vector2() :
-	x(0),
-	y(0)
-	{}
-}Vector2;
+	using Vector2 = glm::ivec2;
+}
