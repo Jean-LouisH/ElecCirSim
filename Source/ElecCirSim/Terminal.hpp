@@ -11,28 +11,29 @@
 
 #include <stdint.h>
 #include "Vector2.hpp"
+#include "Aliases.hpp"
+#include "ComponentTypes.hpp"
+#include "TerminalTypes.hpp"
 
 namespace ElecCirSim
 {
-	enum TerminalTypes
-	{
-		POSITIVE,
-		NEGATIVE,
-		COLLECTOR,
-		BASE,
-		EMITTER,
-		GATE,
-		BODY,
-		SOURCE,
-		DRAIN,
-	};
-
-	typedef struct
+	typedef struct Terminal
 	{
 		Vector2 position;
 		double voltage;
-		double current;
-		uint8_t type;
+		TerminalType type;
+		TerminalIndex index;
+		ComponentIndex componentIndex;
+		ComponentType componentType;
+		std::vector<TerminalIndex> adjacentTerminalIndices;
+
+		Terminal():
+			voltage(0.0),
+			type(0),
+			index(0),
+			componentIndex(0),
+			componentType(0)
+		{}
 	}Terminal;
 }
 

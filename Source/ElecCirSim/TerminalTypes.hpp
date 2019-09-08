@@ -1,0 +1,23 @@
+#pragma once
+
+namespace ElecCirSim
+{
+	enum TerminalTypes
+	{
+		FIRST_TERMINAL,
+		SECOND_TERMINAL,
+		WIPER_TERMINAL,
+		LIVE_TERMINAL,
+		NEUTRAL_TERMINAL,
+		GROUND_TERMINAL,
+		COLLECTOR,
+		BASE,
+		EMITTER,
+		GATE,
+		BODY,
+		SOURCE,
+		DRAIN,
+		GATE_INPUT,
+		GATE_OUTPUT
+	};
+}
