@@ -10,27 +10,31 @@
 
 #pragma once
 
-#include <vector>
+#include <map>
 #include <string>
 #include "Camera2D.hpp"
 #include "Component.hpp"
-#include "ComponentTerminalRegistry.hpp"
+#include "Terminal.hpp"
+#include "TerminalPositionRegistry.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct Application
 	{
-		std::vector<Component> components;
-		ComponentTerminalRegistry registry;
+		std::map<TerminalIndex, Terminal> terminals;
+		TerminalPositionRegistry terminalPositionRegistry;
 		Camera2D camera;
 		double simulationTime_s;
 		double timeStep_us;
 		bool wasCanvasUpdated;
 		std::string simulationTitle;
+		int generatedTerminalCount;
+
 		Application():
 			simulationTime_s(0.0),
 			timeStep_us(10.0),
-			wasCanvasUpdated(false)
+			wasCanvasUpdated(false),
+			generatedTerminalCount(0)
 		{}
 	}Application;
 }
