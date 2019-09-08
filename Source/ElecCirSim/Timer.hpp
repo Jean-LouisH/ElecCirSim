@@ -18,6 +18,7 @@ namespace ElecCirSim
 		int cycleDelta;
 		int frameDelay;
 		int frame;
+
 		Timer() :
 			cycleStart(0),
 			cycleEnd(0),

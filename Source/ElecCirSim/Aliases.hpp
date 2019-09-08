@@ -10,5 +10,10 @@
 
 #include <stdint.h>
 
-using ComponentIndex = uint32_t;
-using TerminalIndex = uint32_t;
+namespace ElecCirSim
+{
+	using ComponentIndex = uint32_t;
+	using TerminalIndex = uint32_t;
+	using ComponentType = uint8_t;
+	using TerminalType = uint8_t;
+}

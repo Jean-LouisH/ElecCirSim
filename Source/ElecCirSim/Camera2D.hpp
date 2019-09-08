@@ -3,8 +3,11 @@
 #include "Rect.hpp"
 #include "Transform2D.hpp"
 
-typedef struct Camera2D
+namespace ElecCirSim
 {
-	Transform2D transform;
-	Rect viewport_px;
-}Camera2D;
+	typedef struct Camera2D
+	{
+		Transform2D transform;
+		Rect viewport_px;
+	}Camera2D;
+}

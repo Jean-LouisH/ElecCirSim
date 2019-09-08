@@ -33,6 +33,7 @@ namespace ElecCirSim
 		Input input;
 		Output output;
 		uint8_t state;
+		
 		Core() :
 			window(NULL),
 			filepath(NULL),
