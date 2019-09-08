@@ -2,11 +2,11 @@
 
 typedef struct Rect
 {
-	double width;
-	double height;
+	int width;
+	int height;
 
 	Rect():
-		width(0.0),
-		height(0.0)
+		width(0),
+		height(0)
 	{}
 }Rect;
