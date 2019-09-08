@@ -12,55 +12,20 @@
 #pragma once
 
 #include <vector>
-#include <stdint.h>
-
-#include "Terminal.hpp"
-#include "Sprite2D.hpp"
+#include "Aliases.hpp"
+#include "ElectricalElements.hpp"
 
 namespace ElecCirSim
 {
-	enum ComponentTypes
+	typedef struct Component
 	{
-		DC_VOLTAGE_SOURCE,
-		AC_VOLTAGE_SOURCE,
-		GROUND,
-
-		POWER_SWITCH,
-
-		RESISTOR,
-		CAPACITOR,
-		INDUCTOR,
-
-		POTENTIOMETER,
-
-		TRANSFORMER,
-		CENTRE_TAPPED_TRANSFORMER,
-
-		NPN_TRANSISTOR,
-		PNP_TRANSISTOR,
-		N_MOSFET,
-		P_MOSFET,
-
-		NOT_GATE,
-		AND_GATE,
-		OR_GATE,
-		NAND_GATE,
-		NOR_GATE,
-	};
-
-	typedef struct
-	{
-		double resistance;
-		double capacitance;
-		double inductance;
-	}ElectricalElements;
-
-	typedef struct
-	{
-		std::vector<Terminal> terminals;
-		Sprite2D sprite;
-		uint8_t type;
+		std::vector<TerminalIndex> terminalIndices;
 		ElectricalElements elements;
+		double current;
+
+		Component():
+			current(0.0)
+		{}
 	}Component;
 }
 

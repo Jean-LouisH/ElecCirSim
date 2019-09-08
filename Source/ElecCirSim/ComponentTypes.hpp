@@ -1,0 +1,27 @@
+#pragma once
+
+namespace ElecCirSim
+{
+	enum ComponentTypes
+	{
+		WIRE,
+		DC_VOLTAGE_SOURCE,
+		AC_VOLTAGE_SOURCE,
+		GROUND,
+		POWER_SWITCH,
+		RESISTOR,
+		CAPACITOR,
+		INDUCTOR,
+		POTENTIOMETER,
+		TRANSFORMER,
+		NPN_TRANSISTOR,
+		PNP_TRANSISTOR,
+		N_MOSFET,
+		P_MOSFET,
+		NOT_GATE,
+		AND_GATE,
+		OR_GATE,
+		NAND_GATE,
+		NOR_GATE,
+	};
+}
