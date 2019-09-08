@@ -84,11 +84,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\SDL2_Image\SDL2_image-2.0.3\include;$(SolutionDir)\ThirdParty\SDL2\SDL2-2.0.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ThirdParty\GLM\glm-0.9.9.3;$(SolutionDir)\ThirdParty\GLEW\glew-2.1.0\include;$(SolutionDir)\ThirdParty\SDL2_Image\SDL2_image-2.0.3\include;$(SolutionDir)\ThirdParty\SDL2\SDL2-2.0.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\ThirdParty\SDL2_Image\SDL2_image-2.0.3\lib\x64;$(SolutionDir)\ThirdParty\SDL2\SDL2-2.0.8\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\ThirdParty\SDL2_Image\SDL2_image-2.0.3\lib\x64;$(SolutionDir)\ThirdParty\SDL2\SDL2-2.0.8\lib\x64;$(SolutionDir)\ThirdParty\GLEW\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;glew32.lib;glew32s.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -123,26 +123,41 @@
   <ItemGroup>
     <ClCompile Include="ElecCirSim.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Renderer2D.cpp" />
     <ClCompile Include="Simulation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ACVoltageSource.hpp" />
     <ClInclude Include="Aliases.hpp" />
     <ClInclude Include="Application.hpp" />
     <ClInclude Include="Camera2D.hpp" />
+    <ClInclude Include="Capacitor.hpp" />
     <ClInclude Include="Component.hpp" />
-    <ClInclude Include="ComponentTerminalRegistry.hpp" />
+    <ClInclude Include="ComponentTypes.hpp" />
     <ClInclude Include="Constants.hpp" />
+    <ClInclude Include="DCVoltageSource.hpp" />
     <ClInclude Include="ElecCirSim.hpp" />
     <ClInclude Include="Core.hpp" />
+    <ClInclude Include="ElectricalElements.hpp" />
+    <ClInclude Include="Ground.hpp" />
+    <ClInclude Include="Inductor.hpp" />
     <ClInclude Include="Input.hpp" />
+    <ClInclude Include="NPNTransistor.hpp" />
     <ClInclude Include="Output.hpp" />
+    <ClInclude Include="Potentiometer.hpp" />
+    <ClInclude Include="PowerSwitch.hpp" />
     <ClInclude Include="Rect.hpp" />
+    <ClInclude Include="Renderer2D.hpp" />
+    <ClInclude Include="Resistor.hpp" />
     <ClInclude Include="Simulation.hpp" />
-    <ClInclude Include="Sprite2D.hpp" />
     <ClInclude Include="Terminal.hpp" />
+    <ClInclude Include="TerminalPositionRegistry.hpp" />
+    <ClInclude Include="TerminalTypes.hpp" />
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="Transform2D.hpp" />
+    <ClInclude Include="Transformer.hpp" />
     <ClInclude Include="Vector2.hpp" />
+    <ClInclude Include="Wire.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

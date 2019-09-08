@@ -1,5 +1,6 @@
 #include "ElecCirSim.hpp"
 #include "Constants.hpp"
+#include "Renderer2D.hpp"
 #include <SDL_image.h>
 
 void ElecCirSim::initialize(Core* core)
@@ -122,7 +123,8 @@ void ElecCirSim::compute(Core* core, Application* application)
 
 void ElecCirSim::output(Core* core)
 {
-
+	Renderer2D::clearBuffers();
+	SDL_GL_SwapWindow(core->window);
 }
 
 void ElecCirSim::shutdown(Core* core, Application* application)
