@@ -20,7 +20,7 @@ namespace ElecCirSim
 {
 	enum coreStates
 	{
-		RUNNING_SIMULATION,
+		RUNNING_APPLICATION_WINDOWED,
 		SHUTDOWN,
 	};
 
@@ -28,16 +28,14 @@ namespace ElecCirSim
 	{
 		SDL_Window* window;
 		SDL_GLContext glContext;
-		SDL_Renderer* SDLRenderer;
-		char* filepath;
+		const char* filepath;
 		Timer timer;
 		Input input;
 		Output output;
 		uint8_t state;
 		Core() :
 			window(NULL),
-			SDLRenderer(NULL),
 			filepath(NULL),
-			state(RUNNING_SIMULATION) {}
+			state(RUNNING_APPLICATION_WINDOWED) {}
 	}Core;
 }

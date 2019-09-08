@@ -9,13 +9,13 @@
 typedef struct Sprite2D
 {
 	Transform2D transform;
-	SDL_Texture* texture;
+	uint8_t* texture;
 	Rect pixels;
 	uint8_t alpha;
-	SDL_RendererFlip flip;
+	bool flip;
 
 	Sprite2D():
 		alpha(255),
-		flip(SDL_FLIP_NONE)
+		flip(false)
 	{}
 }Sprite2D;

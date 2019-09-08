@@ -9,13 +9,10 @@
 
 #pragma once
 
-#include "SDLRenderable.hpp"
-#include <vector>
-
 namespace ElecCirSim
 {
 	typedef struct Output
 	{
-		std::vector<SDLRenderable> SDLRenderables;
+
 	}Output;
 }

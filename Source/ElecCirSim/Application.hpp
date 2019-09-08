@@ -15,7 +15,6 @@
 #include "Camera2D.hpp"
 #include "Component.hpp"
 #include "ComponentTerminalRegistry.hpp"
-#include "TextureCache.hpp"
 
 namespace ElecCirSim
 {
@@ -23,7 +22,6 @@ namespace ElecCirSim
 	{
 		std::vector<Component> components;
 		ComponentTerminalRegistry registry;
-		TextureCache textureCache;
 		Camera2D camera;
 		double simulationTime_s;
 		double timeStep_us;

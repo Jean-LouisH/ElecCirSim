@@ -22,32 +22,32 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{897125FE-14EA-481E-BD09-935BC0B3E5F7}</ProjectGuid>
     <RootNamespace>ElecCirSim</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -123,9 +123,7 @@
   <ItemGroup>
     <ClCompile Include="ElecCirSim.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RenderingSDL.cpp" />
     <ClCompile Include="Simulation.cpp" />
-    <ClCompile Include="TextureCache.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aliases.hpp" />
@@ -139,11 +137,8 @@
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="Output.hpp" />
     <ClInclude Include="Rect.hpp" />
-    <ClInclude Include="RenderingSDL.hpp" />
-    <ClInclude Include="SDLRenderable.hpp" />
     <ClInclude Include="Simulation.hpp" />
     <ClInclude Include="Sprite2D.hpp" />
-    <ClInclude Include="TextureCache.hpp" />
     <ClInclude Include="Terminal.hpp" />
     <ClInclude Include="Timer.hpp" />
     <ClInclude Include="Transform2D.hpp" />

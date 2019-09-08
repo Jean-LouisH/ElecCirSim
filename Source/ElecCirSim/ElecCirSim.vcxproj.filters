@@ -21,10 +21,7 @@
     <ClCompile Include="ElecCirSim.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RenderingSDL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureCache.cpp">
+    <ClCompile Include="Simulation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,9 +39,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Output.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SDLRenderable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Core.hpp">
@@ -80,10 +74,7 @@
     <ClInclude Include="Sprite2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RenderingSDL.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureCache.hpp">
+    <ClInclude Include="Simulation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
