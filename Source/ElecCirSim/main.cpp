@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 	core->filepath = argv[0];
 
 	ElecCirSim::initialize(core);
-	if (core->state != ElecCirSim::SHUTDOWN)
+	if (core->state != ElecCirSim::coreStates::SHUTDOWN)
 		ElecCirSim::loop(core, application);
 	ElecCirSim::shutdown(core, application);
 
