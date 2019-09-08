@@ -14,8 +14,6 @@ namespace ElecCirSim
 {
 	namespace Simulation
 	{		
-		void centreSpritesToTerminals(
-			std::vector<Component>* components, 
-			bool wasCanvasUpdated);
+
 	}
 }
