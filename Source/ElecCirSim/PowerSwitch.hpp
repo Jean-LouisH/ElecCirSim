@@ -10,13 +10,13 @@
 
 #pragma once
 
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct PowerSwitch
 	{
-		Component component;
+		ComponentProperties properties;
 		bool isClosed;
 
 		PowerSwitch() :

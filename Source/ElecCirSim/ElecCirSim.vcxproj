@@ -132,17 +132,21 @@
     <ClInclude Include="Application.hpp" />
     <ClInclude Include="Camera2D.hpp" />
     <ClInclude Include="Capacitor.hpp" />
-    <ClInclude Include="Component.hpp" />
+    <ClInclude Include="ComponentProperties.hpp" />
     <ClInclude Include="ComponentTypes.hpp" />
     <ClInclude Include="Constants.hpp" />
     <ClInclude Include="DCVoltageSource.hpp" />
+    <ClInclude Include="Diode.hpp" />
     <ClInclude Include="ElecCirSim.hpp" />
     <ClInclude Include="Core.hpp" />
     <ClInclude Include="ElectricalElements.hpp" />
     <ClInclude Include="Ground.hpp" />
     <ClInclude Include="Inductor.hpp" />
     <ClInclude Include="Input.hpp" />
-    <ClInclude Include="NPNTransistor.hpp" />
+    <ClInclude Include="LED.hpp" />
+    <ClInclude Include="MOSFET.hpp" />
+    <ClInclude Include="LogicGate.hpp" />
+    <ClInclude Include="BJTTransistor.hpp" />
     <ClInclude Include="Output.hpp" />
     <ClInclude Include="Potentiometer.hpp" />
     <ClInclude Include="PowerSwitch.hpp" />
@@ -158,6 +162,7 @@
     <ClInclude Include="Transformer.hpp" />
     <ClInclude Include="Vector2.hpp" />
     <ClInclude Include="Wire.hpp" />
+    <ClInclude Include="ZenerDiode.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

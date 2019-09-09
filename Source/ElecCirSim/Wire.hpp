@@ -10,12 +10,12 @@
 
 #pragma once
 
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct Wire
 	{
-		Component component;
+		ComponentProperties properties;
 	}Wire;
 }

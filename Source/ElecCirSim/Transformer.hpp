@@ -10,14 +10,14 @@
 
 #pragma once
 
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 #include "Constants.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct Transformer
 	{
-		Component component;
+		ComponentProperties properties;
 		unsigned int primaryTurns;
 		double primaryInductance;
 		unsigned int secondaryTurns;

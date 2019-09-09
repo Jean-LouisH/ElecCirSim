@@ -10,20 +10,20 @@
 
 #pragma once
 
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 #include "Constants.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct Potentiometer
 	{
-		Component component;
+		ComponentProperties properties;
 		double slider_pct;
 
 		Potentiometer():
 			slider_pct(0.5)
 		{
-			component.elements.resistance_ohms = 100.0;
+			properties.elements.resistance_ohms = 100.0;
 		}
 	}Potentiometer;
 }

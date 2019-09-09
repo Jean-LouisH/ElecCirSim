@@ -10,18 +10,18 @@
 
 #pragma once
 
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 #include "Constants.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct Inductor
 	{
-		Component component;
+		ComponentProperties properties;
 
 		Inductor()
 		{
-			component.elements.inductance_henries = 100.0 * MILLI;
+			properties.elements.inductance_henries = 100.0 * MILLI;
 		}
 	}Inductor;
 }

@@ -10,17 +10,17 @@
 
 #pragma once
 
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct Resistor
 	{
-		Component component;
+		ComponentProperties properties;
 
 		Resistor()
 		{
-			component.elements.resistance_ohms = 100.0;
+			properties.elements.resistance_ohms = 100.0;
 		}
 	}Resistor;
 }

@@ -50,9 +50,6 @@
     <ClInclude Include="Terminal.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Component.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vector2.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -119,7 +116,25 @@
     <ClInclude Include="Transformer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NPNTransistor.hpp">
+    <ClInclude Include="Diode.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ZenerDiode.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LED.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MOSFET.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BJTTransistor.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogicGate.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentProperties.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

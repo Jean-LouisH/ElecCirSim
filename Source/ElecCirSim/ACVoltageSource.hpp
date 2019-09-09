@@ -10,13 +10,13 @@
 
 #pragma once
 
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct ACVoltageSource
 	{
-		Component component;
+		ComponentProperties properties;
 		double maxVoltage;
 		double frequency;
 		double DCOffset;

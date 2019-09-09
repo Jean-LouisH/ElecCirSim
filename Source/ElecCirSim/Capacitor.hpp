@@ -10,18 +10,18 @@
 
 #pragma once
 
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 #include "Constants.hpp"
 
 namespace ElecCirSim
 {
 	typedef struct Capacitor
 	{
-		Component component;
+		ComponentProperties properties;
 
 		Capacitor()
 		{
-			component.elements.capacitance_farads = 1.0 * MICRO;
+			properties.elements.capacitance_farads = 1.0 * MICRO;
 		}
 	}Capacitor;
 }

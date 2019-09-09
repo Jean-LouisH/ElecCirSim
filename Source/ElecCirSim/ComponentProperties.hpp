@@ -2,7 +2,7 @@
 *                      This file is part of:
 *                          ElecCirSim
 *
-* Component
+* ComponentProperties
 *
 * Defines the general structure of all electronic components to be listed in the simulation.
 *
@@ -17,15 +17,15 @@
 
 namespace ElecCirSim
 {
-	typedef struct Component
+	typedef struct ComponentProperties
 	{
 		std::vector<TerminalIndex> terminalIndices;
 		ElectricalElements elements;
 		double current;
 
-		Component():
+		ComponentProperties():
 			current(0.0)
 		{}
-	}Component;
+	}ComponentProperties;
 }
 
