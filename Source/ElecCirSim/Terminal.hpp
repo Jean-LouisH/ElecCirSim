@@ -25,7 +25,6 @@ namespace ElecCirSim
 		TerminalIndex index;
 		ComponentIndex componentIndex;
 		ComponentType componentType;
-		std::vector<TerminalIndex> adjacentTerminalIndices;
 
 		Terminal():
 			voltage(0.0),
