@@ -13,9 +13,26 @@
 #include <map>
 #include <string>
 #include "Camera2D.hpp"
-#include "Component.hpp"
+#include "ComponentProperties.hpp"
 #include "Terminal.hpp"
 #include "TerminalPositionRegistry.hpp"
+
+#include "ACVoltageSource.hpp"
+#include "BJTTransistor.hpp"
+#include "Capacitor.hpp"
+#include "DCVoltageSource.hpp"
+#include "Diode.hpp"
+#include "Ground.hpp"
+#include "Inductor.hpp"
+#include "LED.hpp"
+#include "LogicGate.hpp"
+#include "MOSFET.hpp"
+#include "Potentiometer.hpp"
+#include "PowerSwitch.hpp"
+#include "Resistor.hpp"
+#include "Transformer.hpp"
+#include "Wire.hpp"
+#include "ZenerDiode.hpp"
 
 namespace ElecCirSim
 {
