@@ -11,6 +11,7 @@
 namespace ElecCirSim
 {
 #define FRAME_TIME_MS 16
+#define MS_PER_SIMULATION_UPDATE 8
 
 #define TERA 1000000000000.0
 #define GIGA 1000000000.0
