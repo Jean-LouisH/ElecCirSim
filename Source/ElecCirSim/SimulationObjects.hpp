@@ -2,7 +2,7 @@
 *                      This file is part of:
 *                          ElecCirSim
 *
-* Application
+* Simulation Objects
 *
 *
 * Copyright (c) 2017-2018 Jean-Louis Haywood. All rights reserved.
@@ -11,8 +11,6 @@
 #pragma once
 
 #include <map>
-#include <string>
-#include "Camera2D.hpp"
 #include "ComponentProperties.hpp"
 #include "Terminal.hpp"
 #include "TerminalPositionRegistry.hpp"
@@ -36,22 +34,30 @@
 
 namespace ElecCirSim
 {
-	typedef struct Application
+	typedef struct SimulationObjects
 	{
 		std::map<TerminalIndex, Terminal> terminals;
 		TerminalPositionRegistry terminalPositionRegistry;
-		Camera2D camera;
-		double simulationTime_s;
-		double timeStep_us;
-		bool wasCanvasUpdated;
-		std::string simulationTitle;
-		int generatedTerminalCount;
+		std::map<ComponentIndex, DCVoltageSource> dcVoltageSources;
+		std::map<ComponentIndex, Ground> grounds;
+		std::map<ComponentIndex, PowerSwitch> switches;
+		std::map<ComponentIndex, Resistor> resistors;
+		std::map<ComponentIndex, Wire> wires;
 
-		Application():
-			simulationTime_s(0.0),
-			timeStep_us(10.0),
-			wasCanvasUpdated(false),
-			generatedTerminalCount(0)
+		unsigned int generatedTerminalCount;
+		unsigned int dcVoltageSourceCount;
+		unsigned int groundCount;
+		unsigned int switchCount;
+		unsigned int resistorCount;
+		unsigned int wireCount;
+
+		SimulationObjects():
+			generatedTerminalCount(0),
+			dcVoltageSourceCount(0),
+			groundCount(0),
+			switchCount(0),
+			resistorCount(0),
+			wireCount(0)
 		{}
-	}Application;
+	}SimulationObjects;
 }

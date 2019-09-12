@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClInclude Include="ACVoltageSource.hpp" />
     <ClInclude Include="Aliases.hpp" />
-    <ClInclude Include="Application.hpp" />
+    <ClInclude Include="Simulation.hpp" />
     <ClInclude Include="Camera2D.hpp" />
     <ClInclude Include="Capacitor.hpp" />
     <ClInclude Include="ComponentProperties.hpp" />
@@ -153,7 +153,7 @@
     <ClInclude Include="Rect.hpp" />
     <ClInclude Include="Renderer2D.hpp" />
     <ClInclude Include="Resistor.hpp" />
-    <ClInclude Include="Simulation.hpp" />
+    <ClInclude Include="SimulationObjects.hpp" />
     <ClInclude Include="Terminal.hpp" />
     <ClInclude Include="TerminalPositionRegistry.hpp" />
     <ClInclude Include="TerminalTypes.hpp" />

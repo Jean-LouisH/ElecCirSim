@@ -1,7 +1,7 @@
 #include <SDL.h>
 
 #include "ElecCirSim.hpp"
-#include "Application.hpp"
+#include "Simulation.hpp"
 #include "Core.hpp"
 
 #include "Constants.hpp"
@@ -10,16 +10,16 @@
 int main(int argc, char* argv[])
 {
 	ElecCirSim::Core* core = new ElecCirSim::Core();
-	ElecCirSim::Application* application = new ElecCirSim::Application();
+	ElecCirSim::Simulation* simulation = new ElecCirSim::Simulation();
 
 	core->filepath = argv[0];
 
 	ElecCirSim::initialize(core);
 	if (core->state != ElecCirSim::coreStates::SHUTDOWN)
-		ElecCirSim::loop(core, application);
-	ElecCirSim::shutdown(core, application);
+		ElecCirSim::loop(core, simulation);
+	ElecCirSim::shutdown(core, simulation);
 
-	delete application;
+	delete simulation;
 	delete core;
 
 	return 0;

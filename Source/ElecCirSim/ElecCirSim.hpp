@@ -8,16 +8,16 @@
 
 #pragma once
 
-#include "Application.hpp"
+#include "Simulation.hpp"
 #include "Core.hpp"
 
 namespace ElecCirSim
 {
 	void initialize(Core* core);
-	void loop(Core* core, Application* application);
+	void loop(Core* core, Simulation* simulation);
 	void sleep(Core* core);
 	void input(Core* core);
-	void compute(Core* core, Application* application);
+	void compute(Core* core, Simulation* simulation);
 	void output(Core* core);
-	void shutdown(Core* core, Application* application);
+	void shutdown(Core* core, Simulation* simulation);
 }

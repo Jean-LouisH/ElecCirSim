@@ -34,7 +34,7 @@ void ElecCirSim::initialize(Core* core)
 	}
 }
 
-void ElecCirSim::loop(Core* core, Application* application)
+void ElecCirSim::loop(Core* core, Simulation* simulation)
 {
 	Timer* timer = &core->timer;
 
@@ -43,7 +43,7 @@ void ElecCirSim::loop(Core* core, Application* application)
 		timer->cycleStart = SDL_GetTicks();
 
 		ElecCirSim::input(core);
-		ElecCirSim::compute(core, application);
+		ElecCirSim::compute(core, simulation);
 		ElecCirSim::output(core);
 		ElecCirSim::sleep(core);
 	} while (core->state != coreStates::SHUTDOWN);
@@ -116,7 +116,7 @@ void ElecCirSim::input(Core* core)
 	}
 }
 
-void ElecCirSim::compute(Core* core, Application* application)
+void ElecCirSim::compute(Core* core, Simulation* simulation)
 {
 
 }
@@ -127,7 +127,7 @@ void ElecCirSim::output(Core* core)
 	SDL_GL_SwapWindow(core->window);
 }
 
-void ElecCirSim::shutdown(Core* core, Application* application)
+void ElecCirSim::shutdown(Core* core, Simulation* simulation)
 {
 	IMG_Quit();
 	SDL_GL_DeleteContext(core->glContext);

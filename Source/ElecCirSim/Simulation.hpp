@@ -1,19 +1,36 @@
 /**
+*                      This file is part of:
 *                          ElecCirSim
 *
 * Simulation
 *
-* Copyright (c) 2018-2019 Jean-Louis Haywood. All rights reserved.
+*
+* Copyright (c) 2017-2018 Jean-Louis Haywood. All rights reserved.
 */
 
 #pragma once
 
-#include "Application.hpp"
+#include <string>
+#include "Camera2D.hpp"
+#include "SimulationObjects.hpp"
 
 namespace ElecCirSim
 {
-	namespace Simulation
-	{		
+	class Simulation
+	{
+	private:
+		SimulationObjects objects;
+		Camera2D camera;
+		double totalTime_s;
+		double deltaTime_s;
+		bool wasSceneGraphUpdated;
+		std::string title;
+	public:
 
-	}
+		Simulation():
+			totalTime_s(0.0),
+			deltaTime_s(10.0 * MICRO),
+			wasSceneGraphUpdated(false)
+		{}
+	};
 }
