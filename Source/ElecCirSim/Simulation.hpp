@@ -25,6 +25,9 @@ namespace ElecCirSim
 		double deltaTime_s;
 		bool wasSceneGraphUpdated;
 		std::string title;
+
+		//bool isOpenCircuitTerminal(Terminal terminal);
+		//bool isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource);
 	public:
 
 		Simulation():
@@ -32,5 +35,7 @@ namespace ElecCirSim
 			deltaTime_s(10.0 * MICRO),
 			wasSceneGraphUpdated(false)
 		{}
+
+		void analyzeFromVoltageSource();
 	};
 }
