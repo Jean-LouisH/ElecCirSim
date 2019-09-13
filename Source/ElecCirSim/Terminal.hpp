@@ -27,6 +27,7 @@ namespace ElecCirSim
 		ComponentType componentType;
 
 		Terminal():
+			position({0.0, 0.0}),
 			voltage(0.0),
 			type(0),
 			index(0),
