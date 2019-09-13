@@ -44,20 +44,20 @@ namespace ElecCirSim
 		std::map<ComponentIndex, Resistor> resistors;
 		std::map<ComponentIndex, Wire> wires;
 
-		unsigned int generatedTerminalCount;
-		unsigned int dcVoltageSourceCount;
-		unsigned int groundCount;
-		unsigned int switchCount;
-		unsigned int resistorCount;
-		unsigned int wireCount;
+		unsigned int lastTerminalIndex;
+		unsigned int lastDCVoltageSourceIndex;
+		unsigned int lastGroundIndex;
+		unsigned int lastSwitchIndex;
+		unsigned int lastResistorIndex;
+		unsigned int lastWireIndex;
 
 		SimulationObjects():
-			generatedTerminalCount(0),
-			dcVoltageSourceCount(0),
-			groundCount(0),
-			switchCount(0),
-			resistorCount(0),
-			wireCount(0)
+			lastTerminalIndex(0),
+			lastDCVoltageSourceIndex(0),
+			lastGroundIndex(0),
+			lastSwitchIndex(0),
+			lastResistorIndex(0),
+			lastWireIndex(0)
 		{}
 	}SimulationObjects;
 }
