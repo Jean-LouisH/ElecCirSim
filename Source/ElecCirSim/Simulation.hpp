@@ -26,8 +26,8 @@ namespace ElecCirSim
 		bool wasSceneGraphUpdated;
 		std::string title;
 
-		//bool isOpenCircuitTerminal(Terminal terminal);
-		//bool isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource);
+		bool isOpenCircuitTerminal(Terminal terminal);
+		bool isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource);
 	public:
 
 		Simulation():

@@ -1,24 +1,24 @@
 #include "Simulation.hpp"
 
-//bool ElecCirSim::Simulation::isOpenCircuitTerminal(Terminal terminal)
-//{
-//	std::vector<TerminalIndex> adjacentTerminalIndices =
-//		this->objects.terminalPositionRegistry.at(terminal.position);
-//
-//	return (adjacentTerminalIndices.size() == 0);
-//}
-//
-//bool ElecCirSim::Simulation::isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource)
-//{
-//	std::vector<TerminalIndex> adjacentTerminalIndices =
-//		this->objects.terminalPositionRegistry.at(terminal.position);
-//
-//	for (int i = 0; i < adjacentTerminalIndices.size(); i++)
-//		if (dcVoltageSource.properties.terminalIndices.at(0) == adjacentTerminalIndices.at(i))
-//			return true;
-//
-//	return false;
-//}
+bool ElecCirSim::Simulation::isOpenCircuitTerminal(Terminal terminal)
+{
+	std::vector<TerminalIndex> adjacentTerminalIndices =
+		this->objects.terminalPositionRegistry.at(terminal.position);
+
+	return (adjacentTerminalIndices.size() == 0);
+}
+
+bool ElecCirSim::Simulation::isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource)
+{
+	std::vector<TerminalIndex> adjacentTerminalIndices =
+		this->objects.terminalPositionRegistry.at(terminal.position);
+
+	for (int i = 0; i < adjacentTerminalIndices.size(); i++)
+		if (dcVoltageSource.properties.terminalIndices.at(0) == adjacentTerminalIndices.at(i))
+			return true;
+
+	return false;
+}
 
 void ElecCirSim::Simulation::analyzeFromVoltageSource()
 {
@@ -30,11 +30,11 @@ void ElecCirSim::Simulation::analyzeFromVoltageSource()
 			Terminal liveTerminal = this->objects.terminals.at(dcVoltageSource.properties.terminalIndices.at(1));
 			Terminal currentTerminal = liveTerminal;
 
-			//while (!this->isOpenCircuitTerminal(currentTerminal) &&
-			//	!this->isFinalTerminalOfCircuit(currentTerminal, dcVoltageSource))
-			//{
+			while (!this->isOpenCircuitTerminal(currentTerminal) &&
+				!this->isFinalTerminalOfCircuit(currentTerminal, dcVoltageSource))
+			{
 
-			//}
+			}
 		}
 	}
 }

@@ -125,6 +125,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Renderer2D.cpp" />
     <ClCompile Include="Simulation.cpp" />
+    <ClCompile Include="TerminalPositionRegistry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ACVoltageSource.hpp" />
