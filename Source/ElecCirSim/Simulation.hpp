@@ -28,6 +28,7 @@ namespace ElecCirSim
 
 		bool isOpenCircuitTerminal(Terminal terminal);
 		bool isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource);
+		bool isGroundReturnPathTerminal(Terminal terminal);
 	public:
 
 		Simulation():
