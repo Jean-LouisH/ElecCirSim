@@ -29,9 +29,12 @@ namespace ElecCirSim
 		bool isOpenCircuitTerminal(Terminal terminal);
 		bool isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource);
 		bool isGroundReturnPathTerminal(Terminal terminal);
+		Terminal findSeriesConnectedTerminal(Terminal terminal);
+		Terminal findOtherTerminalOnComponent(Terminal terminal);
+		bool hasParallelBranch(Terminal terminal);
 	public:
 
-		Simulation():
+		Simulation() :
 			totalTime_s(0.0),
 			deltaTime_s(10.0 * MICRO),
 			wasSceneGraphUpdated(false)
