@@ -84,7 +84,10 @@ ElecCirSim::Terminal ElecCirSim::Simulation::findSeriesConnectedTerminal(Termina
 
 	for (int j = 0; j < 2; j++)
 		if (adjacentTerminalIndices.at(j) != terminal.index)
+		{
 			seriesConnectedTerminal = this->objects.terminals.at(adjacentTerminalIndices.at(j));
+			break;
+		}
 
 	return seriesConnectedTerminal;
 }
@@ -107,7 +110,10 @@ ElecCirSim::Terminal ElecCirSim::Simulation::findOtherTerminalOnComponent(Termin
 	if (componentTerminalIndices.size() == 2)
 		for (int i = 0; i < 2; i++)
 			if (componentTerminalIndices.at(i) != terminal.index)
+			{
 				otherTerminal = this->objects.terminals.at(componentTerminalIndices.at(i));
+				break;
+			}
 
 	return otherTerminal;
 }
