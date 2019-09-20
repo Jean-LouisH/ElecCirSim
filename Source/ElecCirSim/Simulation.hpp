@@ -27,7 +27,7 @@ namespace ElecCirSim
 		std::string title;
 
 		bool isOpenCircuitTerminal(Terminal terminal);
-		bool isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource);
+		bool isFinalTerminalOfBranch(Terminal terminal, Terminal finalTerminal);
 		bool isGroundReturnPathTerminal(Terminal terminal);
 		Terminal findSeriesConnectedTerminal(Terminal terminal);
 		Terminal findOtherTerminalOnComponent(Terminal terminal);
@@ -41,7 +41,7 @@ namespace ElecCirSim
 		{}
 
 		void analyzeFromDCVoltageSources();
-		double calculateTotalCircuitResistance(DCVoltageSource dcVoltageSource);
-		double calculateBranchResistanceRecursively(Terminal currentTerminal, DCVoltageSource dcVoltageSource);
+		double calculateTotalDCCircuitResistance(DCVoltageSource dcVoltageSource);
+		double calculateBranchResistanceRecursively(Terminal currentTerminal, Terminal finalTerminal);
 	};
 }

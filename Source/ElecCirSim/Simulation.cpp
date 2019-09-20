@@ -7,24 +7,25 @@ void ElecCirSim::Simulation::analyzeFromDCVoltageSources()
 		if (this->objects.dcVoltageSources.count(i))
 		{
 			DCVoltageSource* dcVoltageSource = &this->objects.dcVoltageSources.at(i);
-			double totalResistance = this->calculateTotalCircuitResistance(*dcVoltageSource);
+			double totalResistance = this->calculateTotalDCCircuitResistance(*dcVoltageSource);
 			dcVoltageSource->properties.current = dcVoltageSource->maxVoltage / totalResistance;
 		}
 	}
 }
 
-double ElecCirSim::Simulation::calculateTotalCircuitResistance(DCVoltageSource dcVoltageSource)
+double ElecCirSim::Simulation::calculateTotalDCCircuitResistance(DCVoltageSource dcVoltageSource)
 {
-	Terminal liveTerminal = this->objects.terminals.at(dcVoltageSource.properties.terminalIndices.at(1));
-	return this->calculateBranchResistanceRecursively(liveTerminal, dcVoltageSource);
+	Terminal liveDCTerminal = this->objects.terminals.at(dcVoltageSource.properties.terminalIndices.at(1));
+	Terminal neutralDCTerminal = this->objects.terminals.at(dcVoltageSource.properties.terminalIndices.at(0));
+	return this->calculateBranchResistanceRecursively(liveDCTerminal, neutralDCTerminal);
 }
 
-double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal currentTerminal, DCVoltageSource dcVoltageSource)
+double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal currentTerminal, Terminal finalTerminal)
 {
 	double totalResistance = 0.0;
 
-	while (!this->isOpenCircuitTerminal(currentTerminal) &&
-		!this->isFinalTerminalOfCircuit(currentTerminal, dcVoltageSource))
+	while (!(this->isOpenCircuitTerminal(currentTerminal)) &&
+		!(this->isFinalTerminalOfBranch(currentTerminal, finalTerminal)))
 	{
 		if (!(this->hasParallelBranch(currentTerminal)))
 		{
@@ -58,13 +59,13 @@ bool ElecCirSim::Simulation::isOpenCircuitTerminal(Terminal terminal)
 	return (adjacentTerminalIndices.size() == 1);
 }
 
-bool ElecCirSim::Simulation::isFinalTerminalOfCircuit(Terminal terminal, DCVoltageSource dcVoltageSource)
+bool ElecCirSim::Simulation::isFinalTerminalOfBranch(Terminal terminal, Terminal finalTerminal)
 {
 	std::vector<TerminalIndex> adjacentTerminalIndices =
 		this->objects.terminalPositionRegistry.at(terminal.position);
 
 	for (int i = 0; i < adjacentTerminalIndices.size(); i++)
-		if (dcVoltageSource.properties.terminalIndices.at(0) == adjacentTerminalIndices.at(i))
+		if (finalTerminal.index == adjacentTerminalIndices.at(i))
 			return true;
 
 	return this->isGroundReturnPathTerminal(terminal);
