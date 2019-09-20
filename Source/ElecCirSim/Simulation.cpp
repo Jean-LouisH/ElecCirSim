@@ -132,5 +132,5 @@ ElecCirSim::Terminal ElecCirSim::Simulation::findOtherTerminalOnComponent(Termin
 
 bool ElecCirSim::Simulation::hasParallelBranch(Terminal terminal)
 {
-	return this->objects.terminalPositionRegistry.at(terminal.position).size() == 2;
+	return this->objects.terminalPositionRegistry.at(terminal.position).size() > 2;
 }
