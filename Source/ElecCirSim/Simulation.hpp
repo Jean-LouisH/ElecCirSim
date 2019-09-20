@@ -40,6 +40,8 @@ namespace ElecCirSim
 			wasSceneGraphUpdated(false)
 		{}
 
-		void analyzeFromVoltageSource();
+		void analyzeFromDCVoltageSources();
+		double calculateTotalCircuitResistance(DCVoltageSource dcVoltageSource);
+		double calculateBranchResistanceRecursively(Terminal currentTerminal, DCVoltageSource dcVoltageSource);
 	};
 }

@@ -1,41 +1,53 @@
 #include "Simulation.hpp"
 
-void ElecCirSim::Simulation::analyzeFromVoltageSource()
+void ElecCirSim::Simulation::analyzeFromDCVoltageSources()
 {
 	for (unsigned int i = 0; i < this->objects.lastDCVoltageSourceIndex; i++)
 	{
 		if (this->objects.dcVoltageSources.count(i))
 		{
-			DCVoltageSource dcVoltageSource = this->objects.dcVoltageSources.at(i);
-			Terminal liveTerminal = this->objects.terminals.at(dcVoltageSource.properties.terminalIndices.at(1));
-			Terminal currentTerminal = liveTerminal;
-			double totalResistance = 0.0;
-
-			while (!this->isOpenCircuitTerminal(currentTerminal) &&
-				!this->isFinalTerminalOfCircuit(currentTerminal, dcVoltageSource))
-			{
-				if (!(this->hasParallelBranch(currentTerminal)))
-				{
-					Terminal seriesConnectedTerminal = this->findSeriesConnectedTerminal(currentTerminal);
-
-					switch (seriesConnectedTerminal.componentType)
-					{
-						case ComponentTypes::WIRE_COMPONENT:
-							currentTerminal = this->findOtherTerminalOnComponent(seriesConnectedTerminal);
-							break;
-						case ComponentTypes::RESISTOR_COMPONENT:
-							totalResistance += this->objects.resistors.at(seriesConnectedTerminal.componentIndex).properties.elements.resistance_ohms;
-							currentTerminal = this->findOtherTerminalOnComponent(seriesConnectedTerminal);
-							break;
-					}
-				}
-				else
-				{
-
-				}
-			}
+			DCVoltageSource* dcVoltageSource = &this->objects.dcVoltageSources.at(i);
+			double totalResistance = this->calculateTotalCircuitResistance(*dcVoltageSource);
+			dcVoltageSource->properties.current = dcVoltageSource->maxVoltage / totalResistance;
 		}
 	}
+}
+
+double ElecCirSim::Simulation::calculateTotalCircuitResistance(DCVoltageSource dcVoltageSource)
+{
+	Terminal liveTerminal = this->objects.terminals.at(dcVoltageSource.properties.terminalIndices.at(1));
+	return this->calculateBranchResistanceRecursively(liveTerminal, dcVoltageSource);
+}
+
+double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal currentTerminal, DCVoltageSource dcVoltageSource)
+{
+	double totalResistance = 0.0;
+
+	while (!this->isOpenCircuitTerminal(currentTerminal) &&
+		!this->isFinalTerminalOfCircuit(currentTerminal, dcVoltageSource))
+	{
+		if (!(this->hasParallelBranch(currentTerminal)))
+		{
+			Terminal seriesConnectedTerminal = this->findSeriesConnectedTerminal(currentTerminal);
+
+			switch (seriesConnectedTerminal.componentType)
+			{
+				case ComponentTypes::WIRE_COMPONENT:
+					currentTerminal = this->findOtherTerminalOnComponent(seriesConnectedTerminal);
+					break;
+				case ComponentTypes::RESISTOR_COMPONENT:
+					totalResistance += this->objects.resistors.at(seriesConnectedTerminal.componentIndex).properties.elements.resistance_ohms;
+					currentTerminal = this->findOtherTerminalOnComponent(seriesConnectedTerminal);
+					break;
+			}
+		}
+		else
+		{
+
+		}
+	}
+
+	return totalResistance;
 }
 
 bool ElecCirSim::Simulation::isOpenCircuitTerminal(Terminal terminal)
@@ -120,5 +132,5 @@ ElecCirSim::Terminal ElecCirSim::Simulation::findOtherTerminalOnComponent(Termin
 
 bool ElecCirSim::Simulation::hasParallelBranch(Terminal terminal)
 {
-	return this->objects.terminalPositionRegistry.at(terminal.position).size == 2;
+	return this->objects.terminalPositionRegistry.at(terminal.position).size() == 2;
 }
