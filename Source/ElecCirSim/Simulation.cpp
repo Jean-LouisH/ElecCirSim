@@ -44,9 +44,27 @@ double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal cur
 		}
 		else
 		{
+			Terminal currentReverseTerminal = finalTerminal;
 
+			while (!(this->isOpenCircuitTerminal(currentReverseTerminal) && 
+				!(this->hasParallelBranch(currentReverseTerminal))))
+			{
+				currentReverseTerminal = this->findSeriesConnectedTerminal(currentReverseTerminal);
+				currentReverseTerminal = this->findOtherTerminalOnComponent(currentReverseTerminal);
+			}
+
+			//std::vector<TerminalIndex> adjacentTerminalIndices =
+			//	this->objects.terminalPositionRegistry.at(currentTerminal.position);
+			//int adjacentTerminalCount = adjacentTerminalIndices.size();
+			//std::vector<Terminal> branchSearchTerminals;
+
+			//for (int i = 0; i < adjacentTerminalCount; i++)
+			//	branchSearchTerminals.push_back(this->objects.terminals.at(adjacentTerminalIndices.at(i)));
 		}
 	}
+
+	if (this->isOpenCircuitTerminal(currentTerminal))
+		totalResistance = HUGE_VAL;
 
 	return totalResistance;
 }
@@ -133,5 +151,21 @@ ElecCirSim::Terminal ElecCirSim::Simulation::findOtherTerminalOnComponent(Termin
 
 bool ElecCirSim::Simulation::hasParallelBranch(Terminal terminal)
 {
-	return this->objects.terminalPositionRegistry.at(terminal.position).size() > 2;
+	std::vector<TerminalIndex> adjacentTerminalIndices =
+		this->objects.terminalPositionRegistry.at(terminal.position);
+	bool isConnectedToGround = false;
+	int parallelBranches = adjacentTerminalIndices.size();
+
+	for (int i = 0; i < adjacentTerminalIndices.size(); i++)
+		if (this->objects.terminals.at(adjacentTerminalIndices.at(i)).componentType == 
+			ComponentTypes::GROUND_COMPONENT)
+		{
+			isConnectedToGround = true;
+			break;
+		}
+
+	if ((this->objects.grounds.size() == 1) && isConnectedToGround)
+		parallelBranches -= 1;
+
+	return (parallelBranches > 2);
 }
