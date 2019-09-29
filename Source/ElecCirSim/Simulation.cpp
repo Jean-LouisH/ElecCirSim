@@ -40,6 +40,10 @@ double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal cur
 					totalResistance += this->objects.resistors.at(seriesConnectedTerminal.componentIndex).properties.elements.resistance_ohms;
 					currentTerminal = this->findOtherTerminalOnComponent(seriesConnectedTerminal);
 					break;
+				case ComponentTypes::POWER_SWITCH_COMPONENT:
+					if (!this->objects.switches.at(seriesConnectedTerminal.componentIndex).isClosed)
+						totalResistance = HUGE_VAL;
+					break;
 			}
 		}
 		else
