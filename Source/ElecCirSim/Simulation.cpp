@@ -25,7 +25,8 @@ double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal cur
 	double totalResistance = 0.0;
 
 	while (!(this->isOpenCircuitTerminal(currentTerminal)) &&
-		!(this->isFinalTerminalOfBranch(currentTerminal, finalTerminal)))
+		!(this->isFinalTerminalOfBranch(currentTerminal, finalTerminal)) &&
+		!(totalResistance != HUGE_VAL))
 	{
 		if (!(this->hasParallelBranch(currentTerminal)))
 		{
@@ -49,13 +50,14 @@ double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal cur
 		else
 		{
 			Terminal currentReverseTerminal = finalTerminal;
+			Terminal otherParallelTerminal;
 
-			while (!(this->isOpenCircuitTerminal(currentReverseTerminal) && 
-				!(this->hasParallelBranch(currentReverseTerminal))))
-			{
-				currentReverseTerminal = this->findSeriesConnectedTerminal(currentReverseTerminal);
-				currentReverseTerminal = this->findOtherTerminalOnComponent(currentReverseTerminal);
-			}
+			//while (!(this->isOpenCircuitTerminal(currentReverseTerminal) && 
+			//	!(this->hasParallelBranch(currentReverseTerminal))))
+			//{
+			//	currentReverseTerminal = this->findSeriesConnectedTerminal(currentReverseTerminal);
+			//	currentReverseTerminal = this->findOtherTerminalOnComponent(currentReverseTerminal);
+			//}
 
 			//std::vector<TerminalIndex> adjacentTerminalIndices =
 			//	this->objects.terminalPositionRegistry.at(currentTerminal.position);
