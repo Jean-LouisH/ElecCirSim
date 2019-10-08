@@ -30,7 +30,7 @@ namespace ElecCirSim
 		bool isFinalTerminalOfBranch(Terminal terminal, Terminal finalTerminal);
 		bool isGroundReturnPathTerminal(Terminal terminal);
 		Terminal findSeriesConnectedTerminal(Terminal terminal);
-		bool isConnectedTo(Terminal firstTerminal, Terminal secondTerminal);
+		bool areConnected(Terminal firstTerminal, Terminal secondTerminal);
 		Terminal findOtherTerminalOnComponent(Terminal terminal);
 		bool hasParallelBranch(Terminal terminal);
 	public:

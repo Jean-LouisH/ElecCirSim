@@ -53,7 +53,7 @@ double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal cur
 			Terminal otherParallelTerminal;
 
 			while (!(this->isOpenCircuitTerminal(currentReverseTerminal)) &&
-				!(this->isConnectedTo(currentReverseTerminal, currentTerminal)))
+				!(this->areConnected(currentReverseTerminal, currentTerminal)))
 			{
 				if (!(this->hasParallelBranch(currentReverseTerminal)))
 				{
@@ -72,7 +72,7 @@ double ElecCirSim::Simulation::calculateBranchResistanceRecursively(Terminal cur
 				}
 			}
 
-			if (this->isConnectedTo(currentReverseTerminal, currentTerminal))
+			if (this->areConnected(currentReverseTerminal, currentTerminal))
 			{
 				std::vector<TerminalIndex> adjacentTerminalIndices =
 					this->objects.terminalPositionRegistry.at(currentTerminal.position);
@@ -109,7 +109,7 @@ bool ElecCirSim::Simulation::isOpenCircuitTerminal(Terminal terminal)
 
 bool ElecCirSim::Simulation::isFinalTerminalOfBranch(Terminal terminal, Terminal finalTerminal)
 {
-	if (this->isConnectedTo(terminal, finalTerminal))
+	if (this->areConnected(terminal, finalTerminal))
 		return true;
 
 	return this->isGroundReturnPathTerminal(terminal);
@@ -149,24 +149,10 @@ ElecCirSim::Terminal ElecCirSim::Simulation::findSeriesConnectedTerminal(Termina
 	return seriesConnectedTerminal;
 }
 
-bool ElecCirSim::Simulation::isConnectedTo(Terminal firstTerminal, Terminal secondTerminal)
+bool ElecCirSim::Simulation::areConnected(Terminal firstTerminal, Terminal secondTerminal)
 {
-	bool isConnected = false;
-
-	if (this->findSeriesConnectedTerminal(firstTerminal).index == secondTerminal.index)
-		return true;
-
-	std::vector<TerminalIndex> adjacentTerminalIndices =
-		this->objects.terminalPositionRegistry.at(firstTerminal.position);
-
-	for (int i = 0; i < adjacentTerminalIndices.size(); i++)
-		if (adjacentTerminalIndices.at(i) == secondTerminal.index)
-		{
-			isConnected = true;
-			break;
-		}
-
-	return isConnected;
+	return (firstTerminal.position.x == secondTerminal.position.x) &&
+		(firstTerminal.position.y == secondTerminal.position.y);
 }
 
 ElecCirSim::Terminal ElecCirSim::Simulation::findOtherTerminalOnComponent(Terminal terminal)
