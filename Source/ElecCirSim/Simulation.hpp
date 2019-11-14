@@ -41,6 +41,7 @@ namespace ElecCirSim
 			wasSceneGraphUpdated(false)
 		{}
 
+		void computeDigitalLogic();
 		void analyzeFromDCVoltageSources();
 		double calculateTotalDCCircuitResistance(DCVoltageSource dcVoltageSource);
 		double calculateBranchResistanceRecursively(Terminal currentTerminal, Terminal finalTerminal);

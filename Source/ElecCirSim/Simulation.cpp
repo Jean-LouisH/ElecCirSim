@@ -1,9 +1,86 @@
 #include "Simulation.hpp"
 
+void ElecCirSim::Simulation::computeDigitalLogic()
+{
+	for (unsigned int i = 0; i < this->objects.lastLogicGateIndex; i++)
+	{
+		if (this->objects.logicGates.count(i))
+		{
+			LogicGate* logicGate = &this->objects.logicGates.at(i);
+			Terminal* terminal1 = &this->objects.terminals.at(logicGate->properties.terminalIndices.at(0));
+			Terminal* terminal2 = &this->objects.terminals.at(logicGate->properties.terminalIndices.at(1));
+			Terminal* terminal3;
+
+			if (this->objects.terminals.count(logicGate->properties.terminalIndices.at(2)))
+				terminal3 = &this->objects.terminals.at(logicGate->properties.terminalIndices.at(2));
+
+			switch (logicGate->type)
+			{
+				case LogicGate::NOT_GATE: 
+					if (terminal1->voltage > logicGate->maxVoltage / 2.0)
+					{
+
+					}
+					else
+					{
+
+					}
+					break;
+				case LogicGate::AND_GATE:
+					if (terminal1->voltage > logicGate->maxVoltage / 2.0 &&
+						terminal2->voltage > logicGate->maxVoltage / 2.0)
+					{
+
+					}
+					else
+					{
+
+					}
+					break;
+				case LogicGate::OR_GATE:
+					if (terminal1->voltage > logicGate->maxVoltage / 2.0 ||
+						terminal2->voltage > logicGate->maxVoltage / 2.0)
+					{
+
+					}
+					else
+					{
+
+					}
+					break;
+				case LogicGate::NAND_GATE:
+					if (!(terminal1->voltage > logicGate->maxVoltage / 2.0 &&
+						terminal2->voltage > logicGate->maxVoltage / 2.0))
+					{
+
+					}
+					else
+					{
+
+					}
+					break;
+				case LogicGate::NOR_GATE:
+					if (!(terminal1->voltage > logicGate->maxVoltage / 2.0 ||
+						terminal2->voltage > logicGate->maxVoltage / 2.0))
+					{
+
+					}
+					else
+					{
+
+					}
+					break;
+			}
+		}
+	}
+}
+
 void ElecCirSim::Simulation::analyzeFromDCVoltageSources()
 {
 	for (unsigned int i = 0; i < this->objects.lastDCVoltageSourceIndex; i++)
 	{
+		//Previous DC Voltages may have been removed, so every one should be checked
+		// for existence before using.
 		if (this->objects.dcVoltageSources.count(i))
 		{
 			DCVoltageSource* dcVoltageSource = &this->objects.dcVoltageSources.at(i);

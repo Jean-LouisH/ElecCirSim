@@ -43,6 +43,7 @@ namespace ElecCirSim
 		std::map<ComponentIndex, PowerSwitch> switches;
 		std::map<ComponentIndex, Resistor> resistors;
 		std::map<ComponentIndex, Wire> wires;
+		std::map<ComponentIndex, LogicGate> logicGates;
 
 		unsigned int lastTerminalIndex;
 		unsigned int lastDCVoltageSourceIndex;
@@ -50,6 +51,7 @@ namespace ElecCirSim
 		unsigned int lastSwitchIndex;
 		unsigned int lastResistorIndex;
 		unsigned int lastWireIndex;
+		unsigned int lastLogicGateIndex;
 
 		SimulationObjects():
 			lastTerminalIndex(0),
@@ -57,7 +59,8 @@ namespace ElecCirSim
 			lastGroundIndex(0),
 			lastSwitchIndex(0),
 			lastResistorIndex(0),
-			lastWireIndex(0)
+			lastWireIndex(0),
+			lastLogicGateIndex(0)
 		{}
 	}SimulationObjects;
 }
