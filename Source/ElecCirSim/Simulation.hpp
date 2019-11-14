@@ -33,7 +33,6 @@ namespace ElecCirSim
 		bool areConnected(Terminal firstTerminal, Terminal secondTerminal);
 		Terminal findOtherTerminalOnComponent(Terminal terminal);
 		bool hasParallelBranch(Terminal terminal);
-		double calculatePotentialDifference(Terminal firstTerminal, Terminal secondTerminal);
 	public:
 
 		Simulation() :

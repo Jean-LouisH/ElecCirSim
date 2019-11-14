@@ -201,8 +201,3 @@ bool ElecCirSim::Simulation::hasParallelBranch(Terminal terminal)
 
 	return (parallelBranches > 2);
 }
-
-double ElecCirSim::Simulation::calculatePotentialDifference(Terminal firstTerminal, Terminal secondTerminal)
-{
-	return secondTerminal.voltage - firstTerminal.voltage;
-}
