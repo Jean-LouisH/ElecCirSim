@@ -30,10 +30,12 @@ namespace ElecCirSim
 		ComponentProperties properties;
 		uint8_t type;
 		double slewRate_volts_per_ns;
+		double maxVoltage;
 
-		LogicGate():
+		LogicGate() :
 			type(NOT_GATE),
-			slewRate_volts_per_ns(500.0 * MILLI)
+			slewRate_volts_per_ns(500.0 * MILLI),
+			maxVoltage(5.0)
 		{}
 	}LogicGate;
 }
