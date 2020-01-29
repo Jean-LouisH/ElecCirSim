@@ -12,14 +12,14 @@
 
 #include <string>
 #include "Camera2D.hpp"
-#include "SimulationObjects.hpp"
+#include "ComponentGraph.hpp"
 
 namespace ElecCirSim
 {
 	class Simulation
 	{
 	private:
-		SimulationObjects objects;
+		ComponentGraph componentGraph;
 		Camera2D camera;
 		double totalTime_s;
 		double deltaTime_s;

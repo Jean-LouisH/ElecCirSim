@@ -154,7 +154,7 @@
     <ClInclude Include="Rect.hpp" />
     <ClInclude Include="Renderer2D.hpp" />
     <ClInclude Include="Resistor.hpp" />
-    <ClInclude Include="SimulationObjects.hpp" />
+    <ClInclude Include="ComponentGraph.hpp" />
     <ClInclude Include="Terminal.hpp" />
     <ClInclude Include="TerminalPositionRegistry.hpp" />
     <ClInclude Include="TerminalTypes.hpp" />

@@ -34,7 +34,7 @@
 
 namespace ElecCirSim
 {
-	typedef struct SimulationObjects
+	typedef struct ComponentGraph
 	{
 		std::map<TerminalIndex, Terminal> terminals;
 		TerminalPositionRegistry terminalPositionRegistry;
@@ -53,7 +53,7 @@ namespace ElecCirSim
 		unsigned int lastWireIndex;
 		unsigned int lastLogicGateIndex;
 
-		SimulationObjects():
+		ComponentGraph():
 			lastTerminalIndex(0),
 			lastDCVoltageSourceIndex(0),
 			lastGroundIndex(0),

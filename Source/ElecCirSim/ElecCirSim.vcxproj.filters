@@ -134,10 +134,10 @@
     <ClInclude Include="ComponentProperties.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SimulationObjects.hpp">
+    <ClInclude Include="Simulation.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Simulation.hpp">
+    <ClInclude Include="ComponentGraph.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
